@@ -30,7 +30,8 @@ public class Cliente {
 	 */
 	public void recorrerComprasRealizadas() {
 		for (Compra compra : comprasRealizadas) {
-			System.out.println(compra.getProducto().getNombre());
+			System.out.println("Nombre: " + compra.getProducto().getNombre() + "Cantidad comprada: " + 
+		compra.getCantidadComprada());
 		}
 	}
 
@@ -114,8 +115,11 @@ public class Cliente {
 			return false;
 		} else {
 			producto.setStock(producto.getStock() - cantidad);
-			Compra compra = new Compra("08/11/2018", producto);
+			Producto productoComprado = new Producto(producto.getNombre(), producto.getDescripción(), producto.getCategoria(),
+					producto.getPrecio()); //Producto comprado que no tiene el stock como atributo
+			Compra compra = new Compra("08/11/2018", productoComprado , cantidad);
 			comprasRealizadas.add(compra);
+			empresa.setListaClienteCompra(this, comprasRealizadas);
 			return true;
 		}
 

@@ -4,15 +4,17 @@ public class Compra {
 
 	private String fecha;
 	private Producto producto;
+	private int cantidadComprada;
 
 	public Compra() {
 
 	}
 
-	public Compra(String fecha, Producto producto) {
+	public Compra(String fecha, Producto producto, int cantidadComprada) {
 		super();
 		this.fecha = fecha;
 		this.producto = producto;
+		this.cantidadComprada = cantidadComprada;
 	}
 
 	public String getFecha() {
@@ -29,6 +31,14 @@ public class Compra {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+
+	public int getCantidadComprada() {
+		return cantidadComprada;
+	}
+
+	public void setCantidadComprada(int cantidadComprada) {
+		this.cantidadComprada = cantidadComprada;
 	}
 
 }

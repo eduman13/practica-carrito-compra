@@ -35,9 +35,10 @@ public class Empresa {
 		while (it.hasNext()) {
 			Cliente key = it.next();
 			listaAuxiliar = listaClienteCompra.get(key);
-			System.out.println(key.getNombre());
+			System.out.println("Key: " + key.getNombre());
 			for (Compra compra : listaAuxiliar) {
-				System.out.println(compra.getProducto().getNombre());
+				System.out.println("Value: " + compra.getProducto().getNombre() + " Cantidad Comprada: "
+						+ compra.getCantidadComprada());
 			}
 		}
 	}

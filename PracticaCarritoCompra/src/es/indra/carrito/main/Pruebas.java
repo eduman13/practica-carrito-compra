@@ -1,6 +1,6 @@
 package es.indra.carrito.main;
 
-import es.indra.carrito.beans.Categoria;
+
 import es.indra.carrito.beans.Cliente;
 import es.indra.carrito.beans.Empresa;
 import es.indra.carrito.beans.Producto;
@@ -21,10 +21,23 @@ public class Pruebas {
 		Cliente cliente3 = new Cliente("Jose", "Garcia", "Calle falsa 123", "66666666");
 		cliente1.registrarEnEmpresa(empresa1);
 		empresa1.decrementarStock(producto1, 20);
-		empresa1.recorrerListaProductos();
+		//empresa1.recorrerListaProductos();
 		cliente1.comprar(empresa1, producto1, 9);
-		Categoria producto6 = new Categoria();
-	
+		cliente2.registrarEnEmpresa(empresa1);
+		cliente2.comprar(empresa1, producto4, 8);
+		//empresa1.recorrerListaClienteCompra();
+		cliente3.registrarEnEmpresa(empresa1);
+		//empresa1.recorrerClientesEmpresa();
+		cliente3.comprar(empresa1, producto4, 34);
+		cliente2.comprar(empresa1, producto1, 37);
+		
+		empresa1.recorrerListaProductos();
+		Cliente cliente4 = new Cliente("Eduardo", "Garcia", "Calle falsa 123", "66666666");
+		cliente4.registrarEnEmpresa(empresa1);
+		//cliente3.recorrerComprasRealizadas();
+		cliente4.comprar(empresa1, producto5, 1);
+		empresa1.recorrerClientesEmpresa();
+
 
 //		cliente2.buscarProducto("Manzanas", empresa1);
 //		cliente1.buscarProducto("Manzanas", empresa1);
