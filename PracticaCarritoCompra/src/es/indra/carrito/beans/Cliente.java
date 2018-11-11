@@ -2,8 +2,6 @@ package es.indra.carrito.beans;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class Cliente {
 
@@ -30,8 +28,8 @@ public class Cliente {
 	 */
 	public void recorrerComprasRealizadas() {
 		for (Compra compra : comprasRealizadas) {
-			System.out.println("Nombre: " + compra.getProducto().getNombre() + "Cantidad comprada: " + 
-		compra.getCantidadComprada());
+			System.out.println("Nombre: " + compra.getProducto().getNombre() + "Cantidad comprada: "
+					+ compra.getCantidadComprada());
 		}
 	}
 
@@ -102,22 +100,21 @@ public class Cliente {
 	 *         comprar
 	 */
 	public boolean comprar(Empresa empresa, Producto producto, int cantidad) {
-		JFrame parent = new JFrame();
 		if (cantidad <= 0) {
-			JOptionPane.showMessageDialog(parent, "Por favor, introduzca un número positivo ");
+			System.out.println("Por favor, introduzca un número positivo");
 			return false;
 		} else if (!empresa.getClientesEmpresa().contains(this)) {
-			JOptionPane.showMessageDialog(parent,
-					"No estas Registrado " + this.getNombre() + " " + this.getApellidos());
+			System.out.println("No estas Registrado " + this.getNombre() + " " + this.getApellidos());
 			return false;
 		} else if (producto.getStock() <= cantidad) {
 			System.out.println("No hay suficiente stock");
 			return false;
 		} else {
 			producto.setStock(producto.getStock() - cantidad);
-			Producto productoComprado = new Producto(producto.getNombre(), producto.getDescripción(), producto.getCategoria(),
-					producto.getPrecio()); //Producto comprado que no tiene el stock como atributo
-			Compra compra = new Compra("08/11/2018", productoComprado , cantidad);
+			Producto productoComprado = new Producto(producto.getNombre(), producto.getDescripción(),
+					producto.getCategoria(), producto.getPrecio()); // Producto comprado que no tiene el stock como
+																	// atributo
+			Compra compra = new Compra("08/11/2018", productoComprado, cantidad);
 			comprasRealizadas.add(compra);
 			empresa.setListaClienteCompra(this, comprasRealizadas);
 			return true;
