@@ -36,4 +36,4 @@ compras realizadas en la empresa
 
 ### .main
 
-*Pruebas: clase para realizar pruebas
+* Pruebas: clase para realizar pruebas
